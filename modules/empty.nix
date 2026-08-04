@@ -1,10 +1,6 @@
 {self, moduleWithSystem, ...}: {
-  flake.nixosModules.hyprland = moduleWithSystem ({
-    pkgs,
-    self',
-		inputs',
-    ...
-  }: let
+  flake.nixosModules.NAME = moduleWithSystem (
+  {pkgs, self', inputs', ...}: let
     modules = with self.nixosModules; [];
   in {
     imports = modules;
