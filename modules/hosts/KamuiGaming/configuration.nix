@@ -45,6 +45,14 @@
         variant = "";
       };
 
+      services.xserver.xkb.extraLayouts = {
+      my-dvp = {
+        description = "my-dvp";
+        languages = ["eng"];
+        symbolsFile = ./my-dvp.xkb;
+        };
+      };
+
       # Configure console keymap
       console.keyMap = "uk";
 
