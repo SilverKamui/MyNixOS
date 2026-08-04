@@ -76,6 +76,7 @@
       librewolf
       wl-clipboard
       neovim
+      yazi
       ];
       # OpenGL
       hardware.graphics = {
