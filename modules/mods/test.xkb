@@ -1,0 +1,6 @@
+xkb_symbols "test"
+{
+	include "us(basic)"
+
+  key <CAPS> {[ Escape ]};
+};
