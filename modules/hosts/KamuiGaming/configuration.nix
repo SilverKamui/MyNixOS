@@ -70,7 +70,7 @@
       programs.hyprland = {
         enable = true;
         xwayland.enable = true;
-    };
+      };
 
       # List packages installed in system profile. To search, run:
       # $ nix search wget
@@ -90,6 +90,14 @@
       hardware.graphics = {
         enable = true;
       };
+
+      fonts.packages = with pkgs; [
+          fira-code
+          fira-code-symbols
+          fira-sans
+          nerd-fonts-jetbrains-mono
+      ];
+
 
       # Nvidia
       services.xserver.videoDrivers = ["nvidia"];
