@@ -28,5 +28,5 @@
         lang = "eng";
         symbols = ./my-dvp.xkb;
       };
-    }
+    };
 }
