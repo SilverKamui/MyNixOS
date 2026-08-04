@@ -6,7 +6,7 @@
         lang,
         symbols,
       }: let
-        xkbcomp = lib.getExe pkgs.xorg.xkbcomp;
+        xkbcomp = lib.getExe pkgs.xkbcomp;
         compilationOutputFile = pkgs.runCommand "${name}-compiled-keyboard-layout" {} ''
           (${xkbcomp} ${symbols} 2> $out) || true
         '';
