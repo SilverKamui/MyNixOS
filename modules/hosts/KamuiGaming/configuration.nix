@@ -75,6 +75,7 @@
       git
       librewolf
       wl-clipboard
+      neovim
       ];
       # OpenGL
       hardware.graphics = {
