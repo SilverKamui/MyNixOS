@@ -1,9 +1,5 @@
-{
-	self,
-  moduleWithSystem,
-  ...
-}: {
-  flake.nixosModules.name = moduleWithSystem ({
+{self, moduleWithSystem, ...}: {
+  flake.nixosModules.hyprland = moduleWithSystem ({
     pkgs,
     self',
 		inputs',
