@@ -1,4 +1,4 @@
-{self, inputs ...}: {
+{self, inputs, ...}: {
   flake.nixosModules.KamuiGamingHardware = { config, lib, pkgs, modulesPath, ... }: {
       imports =
         [ (modulesPath + "/installer/scan/not-detected.nix")
