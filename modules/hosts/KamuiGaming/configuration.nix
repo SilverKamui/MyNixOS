@@ -95,7 +95,7 @@
           fira-code
           fira-code-symbols
           fira-sans
-          nerd-fonts-jetbrains-mono
+          nerd-fonts.jetbrains-mono
       ];
 
 

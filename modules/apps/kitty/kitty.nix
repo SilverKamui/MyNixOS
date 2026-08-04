@@ -23,8 +23,6 @@
             italic_font = "auto";
             
             background_opacity = "0.95";
-        
-        ];
       };
     };
   };
