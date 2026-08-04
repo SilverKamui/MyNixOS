@@ -1,4 +1,4 @@
-{self, inputs ...}: {
+{self, inputs, ...}: {
   flake.nixosModules.KamuiGamingConfiguration = { config, pkgs, ... }: {
       imports =
         [ # Include the results of the hardware scan.
