@@ -22,7 +22,9 @@
             bold_font = "auto";
             italic_font = "auto";
             
-            background_opacity = "0.95";        
+            background_opacity = "0.95";
+            dynamic_background_opacity = "yes";
+            include = "/home/kamui/NixOS/modules/apps/kitty/rose-pine.conf";
       };
     };
   };
