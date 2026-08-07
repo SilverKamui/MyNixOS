@@ -7,6 +7,7 @@
       ### Desktop
       self.nixosModules.kitty
       self.nixosModules.noctalia
+      self.nixosModules.neovim
     ];
   };
 }
