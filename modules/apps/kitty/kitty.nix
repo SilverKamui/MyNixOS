@@ -3,6 +3,13 @@
   inputs,
   ...
 }: {
+
+  flake.nixosModules.kitty = { config, pkgs, lib, ... }: {
+    environment.systemPackages = [
+      self.packages.${pkgs.stdenv.hostPlatform.system}.kitty  
+    ];
+  };
+
   flake.wrappersModules.kitty = {
     config,
     lib,
@@ -15,16 +22,7 @@
     config = {
       args = lib.mkAfter (lib.optionals (config.shell != "") [config.shell]);
       settings = {
-            enable_audio_bell = "no";
-
-            font_size = 14;
-            font_family = "Fira Code Regular Nerd Font Complete Mono";
-            bold_font = "auto";
-            italic_font = "auto";
-            
-            background_opacity = "0.95";
-            dynamic_background_opacity = "yes";
-            include = "/home/kamui/NixOS/modules/apps/kitty/rose-pine.conf";
+            include = "~/NixOS/modules/apps/kitty/kitty.conf";
       };
     };
   };

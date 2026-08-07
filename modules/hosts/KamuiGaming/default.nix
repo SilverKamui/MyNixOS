@@ -4,6 +4,9 @@
     modules = [
       self.nixosModules.KamuiGamingConfiguration
       self.nixosModules.myDvp
+      ### Desktop
+      self.nixosModules.kitty
+      self.nixosModules.noctalia
     ];
   };
 }
