@@ -4,6 +4,7 @@
     modules = [
       self.nixosModules.KamuiGamingConfiguration
       self.nixosModules.myDvp
+      self.nixosModules.hostKamuiGaming
     ];
   };
 }
