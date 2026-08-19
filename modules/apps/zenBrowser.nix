@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.zenBrowser = {inputs, pkgs, ... }: {
+    flake.nixosModules.zenBrowser = { pkgs, ... }: {
         environment.systemPackages = [
             inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];

@@ -303,7 +303,9 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill({ window = "activewindow" 
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + N", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + TAB", hl.dsp.window.cyclenext())
+--hl.bind(mainMod .. " + TAB", hl.dsp.window.cyclenext())
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle"}))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "left" }))
@@ -381,7 +383,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g '$(slurp)' - | wl-co
 
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("bluetoothctl disconnect"))
 
-hl.bind(KEYS, hl.dsp.submap("bluetooth"))
+hl.bind("ALT + C", hl.dsp.submap("bluetooth"))
 
 hl.define_submap("bluetooth", function()
     hl.bind("escape", hl.dsp.submap("reset"))
