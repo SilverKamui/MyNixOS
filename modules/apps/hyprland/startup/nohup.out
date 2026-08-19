@@ -1,0 +1,222 @@
+Bot is now running. Press CTRL-C to exit.
+<ref *1> Message {
+  channelId: '1368153229069914233',
+  guildId: '1367933896062271640',
+  id: '1368154963129139304',
+  position: null,
+  createdTimestamp: 1746263962300,
+  type: 'DEFAULT',
+  system: false,
+  content: 'WhatsApp connection successfully opened!',
+  author: ClientUser {
+    id: '1367932774169710734',
+    bot: true,
+    system: false,
+    flags: UserFlags { bitfield: 0 },
+    username: 'WhatsApp',
+    globalName: null,
+    discriminator: '2153',
+    avatar: '0fc6b5ebaa1be68a69cac5ed6a617d59',
+    banner: undefined,
+    accentColor: undefined,
+    avatarDecoration: null,
+    verified: true,
+    mfaEnabled: false
+  },
+  pinned: false,
+  tts: false,
+  nonce: null,
+  embeds: [],
+  components: [],
+  attachments: Collection(0) [Map] {},
+  stickers: Collection(0) [Map] {},
+  editedTimestamp: null,
+  reactions: ReactionManager { message: [Circular *1] },
+  mentions: MessageMentions {
+    everyone: false,
+    users: Collection(0) [Map] {},
+    roles: Collection(0) [Map] {},
+    _members: null,
+    _channels: null,
+    _parsedUsers: null,
+    crosspostedChannels: Collection(0) [Map] {},
+    repliedUser: null
+  },
+  webhookId: null,
+  groupActivityApplication: null,
+  applicationId: null,
+  activity: null,
+  flags: MessageFlags { bitfield: 0 },
+  reference: null,
+  interaction: null
+} 1367932774169710734
+Bot is now running. Press CTRL-C to exit.
+<ref *1> Message {
+  channelId: '1368153229069914233',
+  guildId: '1367933896062271640',
+  id: '1368155124815626282',
+  position: null,
+  createdTimestamp: 1746264000849,
+  type: 'DEFAULT',
+  system: false,
+  content: 'WhatsApp connection successfully opened!',
+  author: ClientUser {
+    id: '1367932774169710734',
+    bot: true,
+    system: false,
+    flags: UserFlags { bitfield: 0 },
+    username: 'WhatsApp',
+    globalName: null,
+    discriminator: '2153',
+    avatar: '0fc6b5ebaa1be68a69cac5ed6a617d59',
+    banner: undefined,
+    accentColor: undefined,
+    avatarDecoration: null,
+    verified: true,
+    mfaEnabled: false
+  },
+  pinned: false,
+  tts: false,
+  nonce: null,
+  embeds: [],
+  components: [],
+  attachments: Collection(0) [Map] {},
+  stickers: Collection(0) [Map] {},
+  editedTimestamp: null,
+  reactions: ReactionManager { message: [Circular *1] },
+  mentions: MessageMentions {
+    everyone: false,
+    users: Collection(0) [Map] {},
+    roles: Collection(0) [Map] {},
+    _members: null,
+    _channels: null,
+    _parsedUsers: null,
+    crosspostedChannels: Collection(0) [Map] {},
+    repliedUser: null
+  },
+  webhookId: null,
+  groupActivityApplication: null,
+  applicationId: null,
+  activity: null,
+  flags: MessageFlags { bitfield: 0 },
+  reference: null,
+  interaction: null
+} 1367932774169710734
+<ref *1> Message {
+  channelId: '1368153229069914233',
+  guildId: '1367933896062271640',
+  id: '1368155131899547649',
+  position: null,
+  createdTimestamp: 1746264002538,
+  type: 'DEFAULT',
+  system: false,
+  content: 'list',
+  author: User {
+    id: '588099754701881410',
+    bot: false,
+    system: false,
+    flags: UserFlags { bitfield: 64 },
+    username: 'silverkamui',
+    globalName: '▄︻テ═╤━┻',
+    discriminator: '0',
+    avatar: '0e7f055d500de1ddbe244cbe7a2646c3',
+    banner: undefined,
+    accentColor: undefined,
+    avatarDecoration: null
+  },
+  pinned: false,
+  tts: false,
+  nonce: '1368155131048099840',
+  embeds: [],
+  components: [],
+  attachments: Collection(0) [Map] {},
+  stickers: Collection(0) [Map] {},
+  editedTimestamp: null,
+  reactions: ReactionManager { message: [Circular *1] },
+  mentions: MessageMentions {
+    everyone: false,
+    users: Collection(0) [Map] {},
+    roles: Collection(0) [Map] {},
+    _members: null,
+    _channels: null,
+    _parsedUsers: null,
+    crosspostedChannels: Collection(0) [Map] {},
+    repliedUser: null
+  },
+  webhookId: null,
+  groupActivityApplication: null,
+  applicationId: null,
+  activity: null,
+  flags: MessageFlags { bitfield: 0 },
+  reference: null,
+  interaction: null
+} 1367932774169710734
+<ref *1> Message {
+  channelId: '1368153229069914233',
+  guildId: '1367933896062271640',
+  id: '1368155133225078825',
+  position: null,
+  createdTimestamp: 1746264002854,
+  type: 'DEFAULT',
+  system: false,
+  content: 'Emily Shimwell\n' +
+    'Ethan Leung\n' +
+    'Furqan\n' +
+    'Grandaaaaaaaaaaaad\n' +
+    'Grandaaaaaaaaaaaad\n' +
+    'Grany\n' +
+    'Hugo\n' +
+    'Mama\n' +
+    'Raif\n' +
+    'Rayanbrayan\n' +
+    'Samstorm\n' +
+    'Siffy\n' +
+    'Whipped Cream\n' +
+    'Yahya\n' +
+    'Zeeshan Omari\n' +
+    'أبي\n' +
+    '\n' +
+    'Not the whole list? You can refresh your contacts by typing `resync`',
+  author: ClientUser {
+    id: '1367932774169710734',
+    bot: true,
+    system: false,
+    flags: UserFlags { bitfield: 0 },
+    username: 'WhatsApp',
+    globalName: null,
+    discriminator: '2153',
+    avatar: '0fc6b5ebaa1be68a69cac5ed6a617d59',
+    banner: undefined,
+    accentColor: undefined,
+    avatarDecoration: null,
+    verified: true,
+    mfaEnabled: false
+  },
+  pinned: false,
+  tts: false,
+  nonce: null,
+  embeds: [],
+  components: [],
+  attachments: Collection(0) [Map] {},
+  stickers: Collection(0) [Map] {},
+  editedTimestamp: null,
+  reactions: ReactionManager { message: [Circular *1] },
+  mentions: MessageMentions {
+    everyone: false,
+    users: Collection(0) [Map] {},
+    roles: Collection(0) [Map] {},
+    _members: null,
+    _channels: null,
+    _parsedUsers: null,
+    crosspostedChannels: Collection(0) [Map] {},
+    repliedUser: null
+  },
+  webhookId: null,
+  groupActivityApplication: null,
+  applicationId: null,
+  activity: null,
+  flags: MessageFlags { bitfield: 0 },
+  reference: null,
+  interaction: null
+} 1367932774169710734
+/home/kamui/startup/whatsapp.sh: line 3: 20733 Hangup                  /home/kamui/apps/WA2DC-Linux

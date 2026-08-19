@@ -39,6 +39,7 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
+local browser = "librewolf"
 
 
 -------------------
@@ -50,8 +51,10 @@ local menu        = "hyprlauncher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
    hl.exec_cmd("noctalia-shell")
+   hl.exec_cmd("hyprpm reload -n")
+   -- hl.exec_cmd("../startup/startup.sh")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
  end)
 
@@ -64,7 +67,21 @@ hl.on("hyprland.start", function ()
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "wayland")
+hl.env("QT_QPA_PLATFORM", "wayland")
+--hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+hl.env("BROWSER", browser)
+hl.env("TERMINAL", "kitty")
+hl.env("TERM", "kitty")
+hl.env("GDK_SCALE", "1")
+-- fcitx env for japanese IME
+hl.env("EDITOR", "nvim")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("XDG_MENU_PREFIX", "nix-")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -84,6 +101,11 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
+hl.config({
+    ecosystem = {
+        no_update_news = true,
+    },
+})
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -112,15 +134,16 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 15,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
+        fullscreen_opacity = 1.0,
 
         shadow = {
-            enabled      = true,
+            enabled      = false,
             range        = 4,
             render_power = 3,
             color        = 0xee1a1a1a,
@@ -128,9 +151,10 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 1,
+            size      = 2,
+            passes    = 4,
             vibrancy  = 0.1696,
+            ignore_opacity = true,
         },
     },
 
@@ -145,15 +169,16 @@ hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}
 hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
 hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
+hl.curve("myBezier",       { type = "bezier", points = { {0.05, 0.9},  {0.1, 1.05}  } })
 
 -- Default springs
 hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
+hl.animation({ leaf = "windows",       enabled = true,  speed = 7,  bezier = "myBezier" })
 hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 7,  bezier = "linear",       style = "popin 87%" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
@@ -213,7 +238,8 @@ hl.config({
 hl.config({
     misc = {
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+        disable_splash_rendering = true,
     },
 })
 
@@ -231,6 +257,7 @@ hl.config({
         kb_rules   = "",
 
         follow_mouse = 1,
+        mouse_refocus = false,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
@@ -249,7 +276,7 @@ hl.gesture({
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-    name        = "epic-mouse-v1",
+    name        = "endgame-gear-endgame-gear-op1-8k-gaming-mouse",
     sensitivity = -0.5,
 })
 
@@ -260,22 +287,44 @@ hl.device({
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+
+-- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+-- closeWindowBind:set_enabled(false)
+-- maybe add a kill instead of close
+
+---------------------------------------------------------------
+-- Windows
+---------------------------------------------------------------
+
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill({ window = "activewindow" }))
+hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + N", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + TAB", hl.dsp.window.cyclenext())
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + i",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + k",  hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + i", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "down" }))
+
+-- additianal stuff
+-- bind = $mainMod CTRL, l, resizeactive, 90 0
+--bind = $mainMod CTRL, j, resizeactive, -90 0
+--bind = $mainMod CTRL, i, resizeactive, 0 -90
+--bind = $mainMod CTRL, k, resizeactive, 0 90
+--bind = $mainMod ALT, l, moveactive, 50 0
+--bind = $mainMod ALT, j, moveactive, -50 0
+--bind = $mainMod ALT, i, moveactive, 0 -50
+--bind = $mainMod ALT, k, moveactive, 0 50 
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -286,8 +335,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + D",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -296,6 +345,52 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Noctalia
+--
+-- notifications on M
+-- launcher menu on A
+-- lockscreen? on U
+-- logout screen on SHIFT Q
+-- wallpaper selector on W
+
+-- Apps
+
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("kitty -c <gruvbox-theme>"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty --hold yazi"))
+-- add yazi zsh script into bash file for retain directoy on exit
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(browser))
+-- add filemanage admin
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu)) -- remember change menu
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("lutris"))
+-- rnote on R
+
+-- Dictionaries and tesseract
+
+-- Actions
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("brightnessctl -q s 10%-"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("brightnessctl -q s +10%"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g '$(slurp)' - | wl-copy"))
+-- rofi websearch on ALT S
+-- bind = $mainMod, F4, exec, TMP_IMG=`mktemp`.png && grim -g "$(slurp)" $TMP_IMG && TMP_TXT=`mktemp` && tesseract $TMP_IMG $TMP_TXT -l jpn && cat $TMP_TXT.txt | tr -d "[:blank:]" | wl-copy && notify-send "OCR text copied"
+--bind = $mainMod SHIFT, D, exec, TMP_IMG=`mktemp`.png && grim -g "$(slurp)" $TMP_IMG && TMP_TXT=`mktemp` && tesseract $TMP_IMG $TMP_TXT -l eng && cat $TMP_TXT.txt | wl-copy && notify-send "OCR text copied"
+
+-- Bluetooth
+
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("bluetoothctl disconnect"))
+
+hl.bind(KEYS, hl.dsp.submap("bluetooth"))
+
+hl.define_submap("bluetooth", function()
+    hl.bind("escape", hl.dsp.submap("reset"))
+
+    hl.bind("SHIFT + A", function ()
+        hl.dispatch(hl.bind.exec_cmd("bluetoothctl connect 70:5A:6F:6C:AA:25"))
+        hl.dispatch(hl.dsp.submap("reset"))
+    end)
+end)
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
@@ -353,6 +448,16 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
+hl.layer_rule({
+    name = "logout",
+    match = { namespace = "logout_dialog" },
+
+    xray = false,
+    blur = true,
+})
+
+-- may need to change for noctallia
+
 -- Hyprland-run windowrule
 hl.window_rule({
     name  = "move-hyprland-run",
@@ -361,3 +466,26 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.window_rule({
+    name = "dolphin file selector float",
+    match = { class = '^(org\\.freedesktop\\.impl\\.portal\\.desktop\\.kde)$'},
+
+    float = true,
+    size = { 1084, 827 },
+})
+
+hl.window_rule({
+    name = "video bridge?",
+    match = { class = "^(xwaylandvideobridge)$"},
+
+    opacity = 0.0,
+    no_anim = true,
+    no_initial_focus = true,
+    max_size = { 1, 1 },
+    no_blur = true,
+})
+
+-----------------------------------------------------
+--- Theme
+--- -----------------------------------------------
