@@ -22,7 +22,7 @@
     config = {
       args = lib.mkAfter (lib.optionals (config.shell != "") [config.shell]);
       settings = {
-            include = "~/NixOS/modules/apps/kitty/kitty.conf";
+            include = "~/nixos/modules/apps/kitty/kitty.conf";
       };
     };
   };
