@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.nvidia = {
-        inputs.nixos-ddcci-nvidia.ddci.enable = true;
-    }
+    flake.nixosModules.nvidia = { config, inputs, ... }: {
+        hardware.ddcci.enable  = true;
+    };
 }

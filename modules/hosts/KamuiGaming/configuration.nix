@@ -3,6 +3,7 @@
       imports =
         [ # Include the results of the hardware scan.
           self.nixosModules.KamuiGamingHardware
+          inputs.nixos-ddcci-nvidia.nixosModules.default
         ];
       
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -113,12 +114,12 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
-      hardware.nvidia.prime = {
-        sync.enable = true;
-
-        nvidiaBusId = "PCI:1@0:0:0";
-        amdgpuBusId = "PCI:101@0:0:0";
-    };
+#      hardware.nvidia.prime = {
+#        sync.enable = true;
+#
+#        nvidiaBusId = "PCI:1@0:0:0";
+#        amdgpuBusId = "PCI:101@0:0:0";
+#    };
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
       # programs.mtr.enable = true;
