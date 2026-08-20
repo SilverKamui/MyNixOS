@@ -3,7 +3,7 @@
   flake.nixosConfigurations.KamuiGaming = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.KamuiGamingConfiguration
-      #self.nixosModules.nvidia
+      self.nixosModules.nvidia
 
       ### Keyboard
       self.nixosModules.myDvp
