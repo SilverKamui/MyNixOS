@@ -12,6 +12,8 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-ddcci-nvidia.url = "github:poogas/nixos-ddcci-nvidia";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake 

@@ -84,6 +84,7 @@
       librewolf
       wl-clipboard
       yazi
+      brightnessctl
       #neovim
       #lazygit
       ];
@@ -115,8 +116,8 @@
       hardware.nvidia.prime = {
         sync.enable = true;
 
-        nvidiaBusId = "PCI:1:0:0";
-        amdgpuBusId = "PCI:101:0:0";
+        nvidiaBusId = "PCI:1@0:0:0";
+        amdgpuBusId = "PCI:101@0:0:0";
     };
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
