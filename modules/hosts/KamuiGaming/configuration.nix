@@ -3,7 +3,6 @@
       imports =
         [ # Include the results of the hardware scan.
           self.nixosModules.KamuiGamingHardware
-          inputs.nixos-ddcci-nvidia.nixosModules.default
         ];
       
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -44,7 +43,7 @@
       services.xserver.xkb = {
         layout = "gb";
         variant = "";
-      };
+      };  
 
       #services.xserver.xkb.extraLayouts = {
       #my-dvp = {
@@ -110,17 +109,23 @@
         modesetting.enable = true;
         powerManagement.enable = false;
         powerManagement.finegrained = false;
-        open = false;
+        open = true;
         nvidiaSettings = true;
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
       hardware.nvidia.prime = {
-        sync.enable = true;
+        offload.enable = true;
 
         nvidiaBusId = "PCI:1@0:0:0";
         amdgpuBusId = "PCI:101@0:0:0";
-    };
+      };
+
+#      boot.kernelPackages = pkgs.linuxPackages_latest;
+#      boot.kernelParams = [
+#          "nvidia-drm.modeset=1"
+#              "nvidia-drm.fbdev=1"
+#      ];
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
       # programs.mtr.enable = true;
