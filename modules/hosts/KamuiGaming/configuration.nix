@@ -79,6 +79,7 @@
         vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
       lshw
+      nvitop
       pciutils
       kitty
       git
@@ -114,12 +115,12 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
-#      hardware.nvidia.prime = {
-#        sync.enable = true;
-#
-#        nvidiaBusId = "PCI:1@0:0:0";
-#        amdgpuBusId = "PCI:101@0:0:0";
-#    };
+      hardware.nvidia.prime = {
+        sync.enable = true;
+
+        nvidiaBusId = "PCI:1@0:0:0";
+        amdgpuBusId = "PCI:101@0:0:0";
+    };
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
       # programs.mtr.enable = true;
