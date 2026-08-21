@@ -11,6 +11,7 @@
  
       ### Desktop
       self.nixosModules.kitty
+      self.nixosModules.zsh
       self.nixosModules.noctalia
       self.nixosModules.neovim
       self.nixosModules.zenBrowser
