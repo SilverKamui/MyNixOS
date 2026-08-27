@@ -1,22 +1,27 @@
 { self, inputs, ... }: {
 
-    flake.wrappersModules.zsh = { config, ... }: {
-        config = {
-            settings = {
-                shellAliases = {
-                    v = "neovim";
-                };
+    flake.wrappersModules.zsh = { config, lib, ... }: {
+        config.settings = {
+            shellAliases = {
+                v = "nvim";
             };
+            
+            integrations = {
+                fzf.enable = true;
+            };
+
+            completion.enable = true;
+            completion.fuzzySearch = true;
         };
     };
 
-    flake.nixosModules.zshWrap = { self, inputs, pkgs, ... }: {
+    flake.nixosModules.zshWrap = { config, pkgs, ... }: {
         programs.zsh.enable = true;
-        users.defaultUserShell = pkgs.zsh;
+        users.defaultUserShell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
     };
 
-    perSystem = { inputs, self, pkgs, ...}: {
-            packages.zsh =
+    perSystem = { pkgs, ...}: {
+            packages.myZsh =
                 (inputs.wrappers.wrapperModules.zsh.apply {
                     inherit pkgs;
                     imports = [self.wrappersModules.zsh];
