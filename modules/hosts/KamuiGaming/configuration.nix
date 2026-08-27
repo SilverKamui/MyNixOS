@@ -86,8 +86,6 @@
       wl-clipboard
       yazi
       brightnessctl
-      #neovim
-      #lazygit
       ];
       # OpenGL
       hardware.graphics = {
