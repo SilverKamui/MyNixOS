@@ -4,20 +4,22 @@
         config.settings = {
             shellAliases = {
                 v = "nvim";
+                nrs = "cd ~/nixos && sudo nixos-rebuild switch --flake .#KamuiGaming";
             };
             
             integrations = {
                 fzf.enable = true;
+                oh-my-posh.enable = true;
             };
 
-            completion.enable = true;
+            completion.enable = false;
             completion.fuzzySearch = true;
         };
     };
 
     flake.nixosModules.zshWrap = { config, pkgs, ... }: {
         programs.zsh.enable = true;
-        users.defaultUserShell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
+        users.extraUsers.kamui.shell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
     };
 
     perSystem = { pkgs, ...}: {
