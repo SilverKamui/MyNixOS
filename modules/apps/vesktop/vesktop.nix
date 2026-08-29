@@ -1,5 +1,7 @@
 { inputs, ... }: {
-    flake.nixosModules.vesktop = { inputs, config, ... }: {
-        programs.vesktop.enable = true;
+    flake.nixosModules.vesktop = { pkgs, ... }: {
+        environment.systemPackages = [
+        pkgs.vesktop
+        ];
     };
 }
