@@ -15,6 +15,7 @@
       self.nixosModules.zsh
  
       ### Desktop
+      self.nixosModules.bluetooth
       self.nixosModules.noctalia
       self.nixosModules.neovim
       self.nixosModules.zenBrowser
