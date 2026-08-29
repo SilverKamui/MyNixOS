@@ -6,6 +6,28 @@
         ];
 
         users.extraUsers.kamui.shell = self.packages.${pkgs.stdenv.hostPlatform.system}.zsh;
+
+        programs.zsh = {
+            enable = true;
+            enableCompletion = true;
+            autosuggestions.enable = true;  
+            syntaxHighlighting.enable = true;
+            
+            histSize = 10000;
+            histFile = "$HOME/.zsh_history";  
+            setOptions = [
+                "HIST_IGNORE_ALL_DUPS"
+            ];
+
+            ohMyZsh = {
+                enable = true;
+                plugins = [
+                    "git"
+                    "zsh-yazi-mount"
+                ];
+                theme = "robbyrussell";
+            };
+        };
     };
 
     perSystem = { lib, self', pkgs, ...}: {
@@ -13,12 +35,13 @@
             inherit pkgs;
             zshAliases = {
                 v = "nvim";
+                nrs = "cd ~/nixos && sudo nixos-rebuild switch --flake .#KamuiGaming";
             };
             runtimePkgs = [ pkgs.fzf ];
             zshrc.content = ''
-source ${./zdotdir/.zshrc}
+                source ${./zdotdir/.zshrc}
 
-eval "$(${lib.getExe self'.packages.starship} init zsh)"
+                eval "$(${lib.getExe self'.packages.starship} init zsh)"
             '';
         };
 

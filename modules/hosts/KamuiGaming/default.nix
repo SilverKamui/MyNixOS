@@ -8,10 +8,13 @@
       ### Keyboard
       self.nixosModules.myDvp
       self.nixosModules.keyd
+
+      ### Shell
+      self.nixosModules.kitty
+      self.nixosModules.git
+      self.nixosModules.zsh
  
       ### Desktop
-      self.nixosModules.kitty
-      self.nixosModules.zsh
       self.nixosModules.noctalia
       self.nixosModules.neovim
       self.nixosModules.zenBrowser

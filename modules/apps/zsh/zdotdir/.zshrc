@@ -73,7 +73,7 @@
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-yazi-mount)
+#plugins=(git zsh-yazi-mount)
 
 # source $ZSH/oh-my-zsh.sh
 
