@@ -134,38 +134,6 @@ alias stopwatch="foot --font 'Fira Sans Book:size=96' isw"
 #        Functions
 ####################################################################
 
-#Wallpaper
-
-function theme() {
-  echo success
-  export WALLPAPER=/home/kamui/Pictures/Img/Wallpaper/$1
-  echo Selected $WALLPAPER
-  swaybg -o \* -i $WALLPAPER -m fill &  disown
-  echo Y | ricemood -a
-  killall swaync
-  swaync & disown
-}
-
-function themefull() {
-  echo success
-  export WALLPAPER=$1
-  echo Selected $WALLPAPER
-  swaybg -o \* -i $WALLPAPER -m fill &  disown
-  echo Y | ricemood -a
-  ./recolor.sh & disown
-  echo recolored
-  killall swaync
-  swaync & disown
-}
-
-function wp {
-  PREVIEW=true rofi -theme fullscreen-preview.rasi -show filebrowser -filebrowser-command '/home/kamui/theme.sh ' -filebrowser-directory ~/Wallpapers\
-}
-
-function wpl {
-  PREVIEW=true rofi -theme fullscreen-preview.rasi -show filebrowser -filebrowser-command '/home/kamui/theme_l.sh ' -filebrowser-directory ~/Wallpapers\
-}
-
 function vpn {
   cd ~/openvpn
   sudo openvpn ~/openvpn/nl-106.ovpn
@@ -183,15 +151,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Waydroid with restart iptables
-
-function android() {
-  systemctl restart iptables
-  echo Starting android...
-  waydroid show-full-ui  
-}
-
-# Created by `pipx` on 2025-01-12 08:43:00
 export PATH="$PATH:/home/kamui/.local/bin"
 
 ## Scripts
@@ -202,4 +161,3 @@ source <(fzf --zsh)
 #                   Startup
 ######################################################################################################
 
-export PATH=$PATH:/home/kamui/.spicetify

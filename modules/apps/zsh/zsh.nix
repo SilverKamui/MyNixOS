@@ -35,6 +35,7 @@
             zshAliases = {
                 v = "nvim";
                 nrs = "cd ~/nixos && sudo nixos-rebuild switch --flake .#KamuiGaming";
+                nrt = "cd ~/nixos && sudo nixos-rebuild test --flake .#KamuiGaming";
             };
             runtimePkgs = [ pkgs.fzf ];
             zshrc.content = ''
