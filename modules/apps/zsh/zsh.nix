@@ -23,7 +23,6 @@
                 enable = true;
                 plugins = [
                     "git"
-                    "zsh-yazi-mount"
                 ];
                 theme = "robbyrussell";
             };
