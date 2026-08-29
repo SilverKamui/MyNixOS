@@ -20,6 +20,8 @@
       self.nixosModules.zenBrowser
       self.nixosModules.vesktop
 
+      self.nixosModules.commonApps
+
       #Gaming
       self.nixosModules.steam
     ];
