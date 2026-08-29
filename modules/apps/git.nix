@@ -5,6 +5,5 @@
             pkgs.git
         ];
         programs.ssh.startAgent = true;
-
     };
 }
