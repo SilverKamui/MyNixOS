@@ -4,6 +4,8 @@
             seanime
             mpv
             qbittorrent
+            ninja
+            kdePackages.dolphin
         ];
     };
 }
