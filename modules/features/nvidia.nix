@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.nvidia = { config, inputs, ... }: {
+    flake.nixosModules.nvidia = { config, inputs, pkgs, ... }: {
         services.xserver.videoDrivers = ["nvidia"];
 
         hardware.nvidia = {
