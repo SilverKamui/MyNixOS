@@ -4,6 +4,8 @@
         environment.systemPackages = [
             self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
         ];
+
+        services.upower.enable = true;
     };
 
     perSystem = { pkgs, ...}: {

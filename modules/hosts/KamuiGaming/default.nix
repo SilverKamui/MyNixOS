@@ -5,6 +5,9 @@
       self.nixosModules.KamuiGamingConfiguration
       self.nixosModules.nvidia
 
+      ### Login
+      self.nixosModules.sddm
+
       ### Keyboard
       self.nixosModules.myDvp
       self.nixosModules.keyd
@@ -13,6 +16,9 @@
       self.nixosModules.kitty
       self.nixosModules.git
       self.nixosModules.zsh
+
+      ### Utility
+      self.nixosModules.rclone
  
       ### Desktop
       self.nixosModules.bluetooth

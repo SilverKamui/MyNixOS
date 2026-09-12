@@ -70,6 +70,7 @@
       programs.hyprland = {
         enable = true;
         xwayland.enable = true;
+        withUWSM = true;
       };
 
       # List packages installed in system profile. To search, run:
