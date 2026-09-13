@@ -1,10 +1,11 @@
 { inputs, ... }: {
-    flake.nixosModules.print = { inputs, ... }: {
-        services.printing.enable = true;
-        drivers = with pkgs; [
-            cups-filters
+    flake.nixosModules.print = { inputs, pkgs, ... }: {
+        services.printing = {
+            enable = true;
+            drivers = with pkgs; [
+                cups-filters
                 cups-browsed
-        ];
-
+            ];
+        }; 
     };
 }
