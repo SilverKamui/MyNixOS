@@ -19,6 +19,7 @@
 
       ### Utility
       self.nixosModules.rclone
+      self.nixosModules.print
  
       ### Desktop
       self.nixosModules.bluetooth
@@ -27,6 +28,7 @@
       self.nixosModules.neovim
       self.nixosModules.zenBrowser
       self.nixosModules.vesktop
+      self.nixosModules.hyprland
 
       self.nixosModules.commonApps
 

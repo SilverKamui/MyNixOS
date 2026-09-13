@@ -6,6 +6,8 @@
             qbittorrent
             ninja
             kdePackages.dolphin
+            bitwarden-cli
+            cnijfilter2
         ];
     };
 }
