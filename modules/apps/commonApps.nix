@@ -8,6 +8,8 @@
             kdePackages.dolphin
             bitwarden-cli
             cnijfilter2
+            grayjay
+            libreoffice
         ];
     };
 }
