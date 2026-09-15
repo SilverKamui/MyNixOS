@@ -14,7 +14,8 @@
         boot.kernelPackages = pkgs.linuxPackages_latest;
         boot.kernelParams = [
             "nvidia-drm.modeset=1"
-                "nvidia-drm.fbdev=1"
+            "nvidia-drm.fbdev=1"
+            "NVreg_UseKernelSuspendNotifiers=1"
         ];
 
         hardware.nvidia.prime = {
@@ -22,6 +23,26 @@
 
             nvidiaBusId = "PCI:1@0:0:0";
             amdgpuBusId = "PCI:101@0:0:0";
+        };
+
+        systemd.user.services.hyprland-suspend = {
+            enable = true;
+            description = "suspend hyprland";
+            before = [
+                "systemd-suspend.service"
+                "systemd-hibernate.service"
+                "nvidia-suspend.service"
+                "nvidia-hibernate.service"
+            ];
+            wantedBy = [
+                "systemd-suspend.service"
+                "systemd-hibernate.service"
+            ];
+            
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "./suspend-hyprland.sh resume";
+            };
         };
 
     };
