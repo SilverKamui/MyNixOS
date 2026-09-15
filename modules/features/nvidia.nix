@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.nvidia = { config, inputs, pkgs, ... }: {
+    flake.nixosModules.nvidia = { config, inputs, pkgs, self, lib, ... }: {
         services.xserver.videoDrivers = ["nvidia"];
 
         hardware.nvidia = {
@@ -25,25 +25,25 @@
             amdgpuBusId = "PCI:101@0:0:0";
         };
 
-        systemd.user.services.hyprland-suspend = {
-            enable = true;
-            description = "suspend hyprland";
-            before = [
-                "systemd-suspend.service"
-                "systemd-hibernate.service"
-                "nvidia-suspend.service"
-                "nvidia-hibernate.service"
-            ];
-            wantedBy = [
-                "systemd-suspend.service"
-                "systemd-hibernate.service"
-            ];
-            
-            serviceConfig = {
-                Type = "oneshot";
-                ExecStart = "./suspend-hyprland.sh resume";
-            };
-        };
+#        systemd.user.services.hyprland-suspend = {
+#            enable = true;
+#            description = "suspend hyprland";
+#            before = [
+#                "systemd-suspend.service"
+#                "systemd-hibernate.service"
+#                "nvidia-suspend.service"
+#                "nvidia-hibernate.service"
+#            ];
+#            wantedBy = [
+#                "systemd-suspend.service"
+#                "systemd-hibernate.service"
+#            ];
+#            
+#            serviceConfig = {
+#                Type = "oneshot";
+#                ExecStart = "/home/kamui/nixos/modules/features/suspend-hyprland.sh";
+#            };
+#        };
 
     };
 }
