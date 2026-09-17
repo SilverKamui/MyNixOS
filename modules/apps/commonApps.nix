@@ -10,6 +10,9 @@
             cnijfilter2
             grayjay
             libreoffice
+            btop
+            kdePackages.okular
+            calibre
         ];
     };
 }
