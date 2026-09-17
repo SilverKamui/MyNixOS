@@ -1,19 +1,22 @@
-{ self, inputs, ... }: { 
+{ self, inputs, ... }: {
 
-    flake.nixosModules.noctalia = { config, pkgs, ... }: {
+    flake.wrapperModules.noctalia = { config, lib, ...}: {
+        config.settings = {
+            
+        };
+    };
+
+    flake.nixosModules.noctalia = { inputs, pkgs, self, ... }: {  
         environment.systemPackages = [
             self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
-        ];
-
-        services.upower.enable = true;
+        ]; 
     };
 
     perSystem = { pkgs, ...}: {
-        packages.noctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
-            inherit pkgs;
-            settings = 
-                (builtins.fromJSON
-                    (builtins.readFile ./noctalia.json)).settings;
-        };
+        packages.noctalia = 
+            (inputs.wrappers.wrapperModules.noctalia.apply {
+                inherit pkgs;
+                imports = [self.wrapperModules.noctalia];
+                }).wrapper;
     };
 }
