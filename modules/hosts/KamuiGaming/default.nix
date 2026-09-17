@@ -25,6 +25,7 @@
       self.nixosModules.bluetooth
       self.nixosModules.networkManager
       self.nixosModules.noctalia-shell
+      #self.nixosModules.noctalia
       self.nixosModules.neovim
       self.nixosModules.zenBrowser
       self.nixosModules.vesktop

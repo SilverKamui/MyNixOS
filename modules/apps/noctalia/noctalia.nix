@@ -12,11 +12,10 @@
         ]; 
     };
 
-    perSystem = { pkgs, ...}: {
+    perSystem = { self, pkgs, ...}: {
         packages.noctalia = 
             (inputs.wrappers.wrapperModules.noctalia.apply {
                 inherit pkgs;
-                imports = [self.wrapperModules.noctalia];
                 }).wrapper;
     };
 }
