@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
     flake.wrappersModules.noctalia = { config, lib, ...}: {
-        config."config.toml" = ./noctalia-config.toml;
+        config."config.toml".path = "./noctalia-config.toml";
     };
 
     flake.nixosModules.noctalia = { config, pkgs, ... }: {  
