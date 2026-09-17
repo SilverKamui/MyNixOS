@@ -10,6 +10,7 @@
             hyprlock
             hypridle
             grim
+            notify
         ];
     };
 }
