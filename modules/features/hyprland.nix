@@ -10,7 +10,7 @@
             hyprlock
             hypridle
             grim
-            notify
+            libnotify
         ];
     };
 }
