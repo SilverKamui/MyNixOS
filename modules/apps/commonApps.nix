@@ -13,6 +13,8 @@
             btop
             kdePackages.okular
             calibre
+            ristretto
+            xdg-utils
         ];
     };
 }
