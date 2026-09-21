@@ -1,4 +1,15 @@
 [bar.default]
+font_family = "Noto Sans CJK JP"
+font_scale = 1.1999999806284904
+font_weight = 400
+icon_color = "primary"
+margin_ends = 0
+position = "bottom"
+radius = 0
+shadow = false
+show_on_workspace_switch = false
+start = [ "launcher", "wallpaper", "workspaces", "cpu", "ram", "temp" ]
+thickness = 40
 
 [lockscreen_widgets]
 enabled = false
@@ -37,8 +48,22 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[shell]
+font_family = "Noto Sans CJK JP"
+
+[theme]
+builtin = "Rosé Pine"
+source = "wallpaper"
+wallpaper_scheme = "soft"
+
+    [theme.templates]
+    enable_builtin_templates = false
+
 [wallpaper.default]
-path = "/nix/store/j59q1n988kakwf32lsrim2dp40625d8b-noctalia-5.0.0-beta.9/share/noctalia/assets/noctalia-wallpaper.png"
+path = "/home/kamui/Pictures/Img/Wallpaper/elaina_flat2.jpg"
 
 [wallpaper.last]
-path = "/nix/store/j59q1n988kakwf32lsrim2dp40625d8b-noctalia-5.0.0-beta.9/share/noctalia/assets/noctalia-wallpaper.png"
+path = "/home/kamui/Pictures/Img/Wallpaper/elaina_flat2.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/kamui/Pictures/Img/Wallpaper/elaina_flat2.jpg"
