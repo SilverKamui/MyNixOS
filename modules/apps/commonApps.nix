@@ -15,6 +15,7 @@
             calibre
             ristretto
             xdg-utils
+            brave
         ];
     };
 }
