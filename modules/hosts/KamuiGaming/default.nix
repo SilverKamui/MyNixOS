@@ -35,6 +35,7 @@
 
       #Gaming
       self.nixosModules.steam
+      self.nixosModules.games
     ];
   };
 }
