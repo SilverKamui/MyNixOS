@@ -16,6 +16,10 @@
             ristretto
             xdg-utils
             brave
+
+            ## Music
+            rmpc
+            mpd
         ];
     };
 }
