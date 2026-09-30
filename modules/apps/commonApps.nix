@@ -12,7 +12,6 @@
             libreoffice
             btop
             kdePackages.okular
-            calibre
             ristretto
             xdg-utils
             brave
@@ -20,6 +19,10 @@
             ## Music
             rmpc
             mpd
+
+            ## Study
+            anki
+            calibre
         ];
     };
 }
