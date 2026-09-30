@@ -23,6 +23,7 @@
             ## Study
             anki
             calibre
+            texliveMedium
         ];
     };
 }

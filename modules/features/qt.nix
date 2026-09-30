@@ -1,8 +1,8 @@
 { inputs, ... }: {
-    flake.nixosModules.qt = { inputs, pkgs ... }: {
+    flake.nixosModules.qt = { inputs, pkgs, ... }: {
         qt = {
             enable = true;
             platformTheme = "kde";
-        }
+        };
     };
 }
