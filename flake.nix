@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    libtexprintf.url = "github:xbwwj/libtexprintf-nix";
+
     nixos-ddcci-nvidia.url = "github:poogas/nixos-ddcci-nvidia";
   };
 

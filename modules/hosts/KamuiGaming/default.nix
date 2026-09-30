@@ -20,6 +20,9 @@
       ### Utility
       self.nixosModules.rclone
       self.nixosModules.print
+
+      ### Study
+      self.nixosModules.latex
  
       ### Desktop
       self.nixosModules.bluetooth
