@@ -1,9 +1,9 @@
 { inputs, ... }: {
-    flake.nixosModules.latex = { inputs, pkgs, ... }: {
+    flake.nixosModules.latex = { pkgs, ... }: {
         environment.systemPackages = [
-            inputs.libtexprintf-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
-            texliveMedium
-            python314Packages.pylatexenc
+            inputs.libtexprintf.packages.${pkgs.stdenv.hostPlatform.system}.default
+            pkgs.texliveMedium
+            pkgs.python314Packages.pylatexenc
         ];
     };
 }

@@ -5,6 +5,9 @@
       self.nixosModules.KamuiGamingConfiguration
       self.nixosModules.nvidia
 
+      ### Core
+      self.nixosModules.audio
+
       ### Login
       self.nixosModules.sddm
 
