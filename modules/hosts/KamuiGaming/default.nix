@@ -42,6 +42,9 @@
       #Gaming
       self.nixosModules.steam
       self.nixosModules.games
+
+      # Code
+      self.nixosModules.haskell
     ];
   };
 }

@@ -1,16 +1,20 @@
 { inputs, ... }: {
     flake.nixosModules.audio = { inputs, pkgs, ... }: {
-        environment.systemPackages = [
+        environment.systemPackages = with pkgs; [
             pwvucontrol
+            coppwr
+            easyeffects
+            hyprpwcenter
         ];
 
-        software.pulseaudio.enable = false;
+        services.pulseaudio.enable = false;
 
         services.pipewire = {
+            audio.enable = true;
+            pulse.enable = true;
             enable = true;
             alsa.enable = true;
             alsa.support32Bit = true;
-            pulse.enable = true;
         };
     };
 }
