@@ -1,6 +1,10 @@
 { inputs, ... }: {
     flake.nixosModules.commonApps = { pkgs, ... }: {
         environment.systemPackages = with pkgs; [
+            # Utility
+            killall
+            
+            # Misc
             seanime
             mpv
             qbittorrent
