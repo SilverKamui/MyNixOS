@@ -2,10 +2,11 @@
     flake.nixosModules.nvidia = { config, inputs, pkgs, self, lib, ... }: {
         services.xserver.videoDrivers = ["nvidia"];
 
+        powerManagement.enable = true;
         hardware.nvidia = {
             modesetting.enable = true;
             powerManagement.enable = false;
-            powerManagement.finegrained = false;
+            powerManagement.finegrained = true;
             open = true;
             nvidiaSettings = true;
             package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -16,6 +17,7 @@
             "nvidia-drm.modeset=1"
             "nvidia-drm.fbdev=1"
             "NVreg_UseKernelSuspendNotifiers=1"
+            "nvidia.NVreg_TemporaryFilePath=/var/tmp"
         ];
 
         hardware.nvidia.prime = {
