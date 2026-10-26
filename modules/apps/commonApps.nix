@@ -26,7 +26,7 @@
 
             ## Study
             anki
-            calibre
+            #calibre #build-failure #fix
         ];
     };
 }
