@@ -36,7 +36,8 @@
       self.nixosModules.zenBrowser
       self.nixosModules.vesktop
       self.nixosModules.hyprland
-
+      
+      self.nixosModules.flatpak
       self.nixosModules.commonApps
 
       #Gaming
