@@ -22,7 +22,6 @@
 
             ## Music
             rmpc
-            mpd
 
             ## Study
             anki

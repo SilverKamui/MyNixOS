@@ -37,8 +37,11 @@
       self.nixosModules.vesktop
       self.nixosModules.hyprland
       
-      self.nixosModules.flatpak
+      #self.nixosModules.flatpak
       self.nixosModules.commonApps
+
+      #Entertainment
+      self.nixosModules.mpd
 
       #Gaming
       self.nixosModules.steam

@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.flatpak = { inputs, ... }: {
+    flake.nixosModules.flatpak = { inputs, pkgs, ... }: 
         let
         # Fetch nix-flatpak
             nix-flatpak = pkgs.fetchFromGitHub {
@@ -8,7 +8,7 @@
                 rev = "v0.8.0";
                 hash = "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=";
             };
-        in
+        in {
             imports = [
             # Import the nix-flatpak NixOS module and install applications system wide.
             # HomeManager users should import `${nix-flatpak}/modules/home-manager.nix`
