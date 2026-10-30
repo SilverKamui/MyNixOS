@@ -23,6 +23,7 @@
       ### Utility
       self.nixosModules.rclone
       self.nixosModules.print
+      self.nixosModules.usbMount
 
       ### Study
       self.nixosModules.latex
