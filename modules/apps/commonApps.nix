@@ -2,6 +2,7 @@
     flake.nixosModules.commonApps = { pkgs, ... }: {
         environment.systemPackages = with pkgs; [
             # Utility
+            udisks
             killall
             
             # Misc
@@ -22,9 +23,11 @@
 
             ## Music
             rmpc
+            mpd
 
             ## Study
             anki
+            syncthing
             #calibre #build-failure #fix
         ];
     };

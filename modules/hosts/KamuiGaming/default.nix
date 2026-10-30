@@ -41,7 +41,7 @@
       self.nixosModules.commonApps
 
       #Entertainment
-      self.nixosModules.mpd
+        #self.nixosModules.mpd
 
       #Gaming
       self.nixosModules.steam
