@@ -1,5 +1,5 @@
 { inputs, ... }: {
-    flake.nixosModules.keyd = { config, ... }: {
+    flake.nixosModules.keyd = { config, pkgs, ... }: {
         services.keyd = {
             enable = true;
             keyboards = {
@@ -8,6 +8,7 @@
                     settings = {
                         main = {
                             capslock = "overload(control, esc)";
+                            control = "overload(control, capslock)";
                         };
                             otherlayer = {};
                     };
@@ -21,5 +22,9 @@
                 MatchName=keyd virtual keyboard
                 AttrKeyboardIntegration=internal
         '';
+
+        environment.systemPackages = [
+            pkgs.keyd
+        ];
     };
-}
+        }

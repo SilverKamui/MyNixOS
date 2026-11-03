@@ -28,7 +28,7 @@
             ## Study
             anki
             syncthing
-            #calibre #build-failure #fix
+            calibre-no-speech #build-failure #fix
         ];
     };
 }
