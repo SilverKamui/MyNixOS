@@ -4,6 +4,7 @@
             # Utility
             udisks
             killall
+            nix-index
             
             # Misc
             seanime
