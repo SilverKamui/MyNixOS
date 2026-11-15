@@ -99,7 +99,11 @@ let
       };
       widget_order = [ "lockscreen-login-box@eDP-1" ];
     };
-    plugin_settings."dmopp/settings-to-nix".target_path = "/home/kamui/nixos/modules/apps/noctalia/settings-backup/gui-settings.nix";
+    plugin_settings."dmopp/settings-to-nix" = {
+      panel_placement = "floating";
+      panel_position = "center";
+      target_path = "/home/kamui/nixos/modules/apps/noctalia/settings-backup/gui-settings.nix";
+    };
     plugins.enabled = [ "dmopp/settings-to-nix" ];
     shell.font_family = "Noto Sans CJK JP";
     theme = {
