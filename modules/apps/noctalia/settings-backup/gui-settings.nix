@@ -39,7 +39,7 @@ let
       thickness = 40;
       widget_spacing = 8;
     };
-    config_version = 16;
+    config_version = 20;
     idle = {
       behavior = {
         lock = {
