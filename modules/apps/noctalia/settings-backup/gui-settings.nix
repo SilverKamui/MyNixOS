@@ -108,7 +108,6 @@ let
     shell.font_family = "Noto Sans CJK JP";
     theme = {
       builtin = "Rosé Pine";
-      mode = "dark";
       source = "builtin";
       wallpaper_scheme = "m3-content";
     };
