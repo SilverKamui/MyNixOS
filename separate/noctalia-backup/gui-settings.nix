@@ -39,7 +39,7 @@ let
       thickness = 40;
       widget_spacing = 8;
     };
-    config_version = 20;
+    config_version = 15;
     idle = {
       behavior = {
         lock = {
@@ -79,7 +79,7 @@ let
         placement_width = 2560.0;
         rotation = 0.0;
         settings = {
-          background_color = "surface_container";
+          background_color = "surface_variant";
           background_opacity = 0.88;
           background_radius = 12.0;
           center_password_text = false;
@@ -102,7 +102,7 @@ let
     plugin_settings."dmopp/settings-to-nix" = {
       panel_placement = "floating";
       panel_position = "center";
-      target_path = "/home/kamui/nixos/modules/apps/noctalia/settings-backup/gui-settings.nix";
+      target_path = "/home/kamui/nixos/separate/noctalia-backup/gui-settings.nix";
     };
     plugins.enabled = [ "dmopp/settings-to-nix" ];
     shell.font_family = "Noto Sans CJK JP";
