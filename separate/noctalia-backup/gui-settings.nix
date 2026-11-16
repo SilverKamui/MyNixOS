@@ -55,7 +55,7 @@ let
         screen-off = {
           action = "screen_off";
           enabled = true;
-          timeout = 660.0;
+          timeout = 300.0;
         };
       };
       behavior_order = [ "lock" "screen-off" "lock-and-suspend" ];
