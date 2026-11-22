@@ -4,7 +4,7 @@
             enable = true;
             defaultApplications = {
                 "inode/directory" = [ "dolphin.desktop" ];
-                "application/x-gnome-saved-search" = [ "nemo.desktop" ];
+                "application/x-gnome-saved-search" = [ "dolphin.desktop" ];
             };
         };
     };
